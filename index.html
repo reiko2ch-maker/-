@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>残響探偵・雨乃町奇譚</title>
+  <meta name="description" content="横画面対応の分岐型ノベルホラーゲーム。探偵として呪われた洋館の真相を解き明かせ。" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="game-shell">
+    <header class="topbar pixel-frame">
+      <div class="brand-block">
+        <p class="eyebrow">PIXEL HORROR NOVEL</p>
+        <h1>残響探偵・雨乃町奇譚</h1>
+      </div>
+      <div class="topbar-actions">
+        <button id="menuButton" class="ui-btn">MENU</button>
+        <button id="saveButton" class="ui-btn accent">SAVE</button>
+        <button id="loadButton" class="ui-btn">LOAD</button>
+      </div>
+    </header>
+
+    <main class="stage pixel-frame">
+      <div class="background-wrap">
+        <img id="bgImage" class="background-image" src="assets/bg_title.png" alt="背景" />
+        <div class="bg-noise"></div>
+        <div class="bg-vignette"></div>
+      </div>
+
+      <section class="hud-left pixel-frame translucent">
+        <h2>CLUE</h2>
+        <ul id="clueList" class="clue-list"></ul>
+      </section>
+
+      <section class="character-area">
+        <img id="charLeft" class="character left hidden" src="" alt="左キャラクター" />
+        <img id="charCenter" class="character center hidden" src="" alt="中央キャラクター" />
+        <img id="charRight" class="character right hidden" src="" alt="右キャラクター" />
+      </section>
+
+      <section class="hud-right pixel-frame translucent">
+        <h2>CASE</h2>
+        <div id="statusPanel" class="status-panel"></div>
+      </section>
+
+      <section class="dialogue-wrap pixel-frame">
+        <div class="name-row">
+          <span id="speakerName" class="speaker-name">――</span>
+          <span id="chapterLabel" class="chapter-label">PROLOGUE</span>
+        </div>
+        <div id="textBox" class="text-box"></div>
+        <div id="choices" class="choices"></div>
+        <div class="dialogue-actions">
+          <button id="logButton" class="ui-btn small">LOG</button>
+          <button id="skipButton" class="ui-btn small">SKIP</button>
+          <button id="nextButton" class="ui-btn accent">NEXT</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <aside id="menuModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-panel pixel-frame">
+      <div class="modal-header">
+        <h2>MENU</h2>
+        <button class="ui-btn small" data-close-modal>閉じる</button>
+      </div>
+      <div class="menu-grid">
+        <section class="menu-section pixel-frame translucent">
+          <h3>セーブスロット</h3>
+          <div id="saveSlots" class="slot-list"></div>
+        </section>
+        <section class="menu-section pixel-frame translucent">
+          <h3>ログ</h3>
+          <div id="logPanel" class="log-panel"></div>
+        </section>
+        <section class="menu-section pixel-frame translucent">
+          <h3>遊び方</h3>
+          <div class="guide-text">
+            <p>調査先や推理の選択で結末が変化します。</p>
+            <p>重要な証拠は左側のCLUEに蓄積されます。</p>
+            <p>横画面向け設計ですが、スマホでも拡大なしで読めるよう調整済みです。</p>
+            <p>セーブは3枠。ブラウザのローカル保存を使います。</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </aside>
+
+  <script src="game-data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
